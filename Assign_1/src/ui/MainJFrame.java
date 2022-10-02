@@ -39,6 +39,7 @@ public class MainJFrame extends javax.swing.JFrame {
         Create = new javax.swing.JButton();
         View = new javax.swing.JButton();
         jDesktopPane2 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,15 +85,28 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setLeftComponent(jDesktopPane1);
 
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Human Resource Management ");
+
+        jDesktopPane2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 822, Short.MAX_VALUE)
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(231, Short.MAX_VALUE))
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 633, Short.MAX_VALUE)
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(444, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jDesktopPane2);
@@ -103,14 +117,14 @@ public class MainJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+                .addComponent(jSplitPane1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                .addComponent(jSplitPane1)
                 .addContainerGap())
         );
 
@@ -170,6 +184,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton View;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

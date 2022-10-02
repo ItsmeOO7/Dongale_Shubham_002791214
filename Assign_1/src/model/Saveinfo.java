@@ -4,6 +4,8 @@
  */
 package model;
 
+
+
 /**
  *
  * @author Shubh's PC
@@ -18,10 +20,34 @@ public class Saveinfo {
     private String level;
     private String Tinfo;
     private String poseinfo;
-    private String Contact;
+    private String email;
+    private String cell;
     
+    public String getEmail() {
+        return email;
+    }
 
-          
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCell() {
+        return cell;
+    }
+
+    public void setCell(String cell) {
+        this.cell = cell;
+    }
+     public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+ 
+ 
+       
     public String getName() {
         return name;
     }
@@ -54,14 +80,7 @@ public class Saveinfo {
         this.gender = gender;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
+   
     public String getLevel() {
         return level;
     }
@@ -86,13 +105,5 @@ public class Saveinfo {
         this.poseinfo = poseinfo;
     }
 
-    public String getContact() {
-        return Contact;
-    }
-
-    public void setContact(String Contact) {
-        this.Contact = Contact;
-    }
-    
     
 }

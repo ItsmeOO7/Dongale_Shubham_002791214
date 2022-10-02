@@ -3,12 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ui;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Saveinfo;
 import model.datainfo;
-import java.util.ArrayList;
-import javax.swing.ImageIcon;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 
@@ -50,7 +53,6 @@ public class View1 extends javax.swing.JPanel {
         javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
         TGender = new javax.swing.JTextField();
         javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
-        TStd = new javax.swing.JTextField();
         javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
         TLevel = new javax.swing.JTextField();
         javax.swing.JLabel jLabel7 = new javax.swing.JLabel();
@@ -58,10 +60,13 @@ public class View1 extends javax.swing.JPanel {
         javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
         Tpose = new javax.swing.JTextField();
         javax.swing.JLabel jLabel9 = new javax.swing.JLabel();
-        TConinfo = new javax.swing.JTextField();
+        TEmail = new javax.swing.JTextField();
         Update = new javax.swing.JButton();
         Srch = new javax.swing.JButton();
         Tsearch = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel10 = new javax.swing.JLabel();
+        TCell = new javax.swing.JTextField();
+        TStd = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(750, 538));
 
@@ -70,14 +75,14 @@ public class View1 extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Employee ID", "Age", "Gender", "Start Date", "Level", "Team Info", "Position Title ", "Contact Info "
+                "Name", "Employee ID", "Age", "Gender", "Start Date", "Level", "Team Info", "Position Title ", "Email", "Cell No "
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -110,6 +115,7 @@ public class View1 extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(6).setResizable(false);
             jTable1.getColumnModel().getColumn(7).setResizable(false);
             jTable1.getColumnModel().getColumn(8).setResizable(false);
+            jTable1.getColumnModel().getColumn(9).setResizable(false);
         }
 
         Delete.setText("Delete");
@@ -151,9 +157,6 @@ public class View1 extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText(" Start Date :");
 
-        TStd.setBackground(new java.awt.Color(255, 255, 255));
-        TStd.setForeground(new java.awt.Color(0, 0, 0));
-
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Level:");
@@ -177,10 +180,10 @@ public class View1 extends javax.swing.JPanel {
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel9.setText("Contact Info:");
+        jLabel9.setText("Email :");
 
-        TConinfo.setBackground(new java.awt.Color(255, 255, 255));
-        TConinfo.setForeground(new java.awt.Color(0, 0, 0));
+        TEmail.setBackground(new java.awt.Color(255, 255, 255));
+        TEmail.setForeground(new java.awt.Color(0, 0, 0));
 
         Update.setText("Update");
         Update.addActionListener(new java.awt.event.ActionListener() {
@@ -199,6 +202,16 @@ public class View1 extends javax.swing.JPanel {
         Tsearch.setBackground(new java.awt.Color(255, 255, 255));
         Tsearch.setForeground(new java.awt.Color(0, 0, 0));
 
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setText("Cell :");
+
+        TCell.setBackground(new java.awt.Color(255, 255, 255));
+        TCell.setForeground(new java.awt.Color(0, 0, 0));
+
+        TStd.setBackground(new java.awt.Color(255, 255, 255));
+        TStd.setForeground(new java.awt.Color(0, 0, 0));
+
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(Delete, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -210,7 +223,6 @@ public class View1 extends javax.swing.JPanel {
         jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(TGender, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(TStd, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(TLevel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -218,10 +230,13 @@ public class View1 extends javax.swing.JPanel {
         jDesktopPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(Tpose, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(TConinfo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(TEmail, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(Update, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(Srch, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(Tsearch, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(TCell, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(TStd, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -233,39 +248,41 @@ public class View1 extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addComponent(Tsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel3)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(Delete)
-                                .addGap(18, 18, 18)
-                                .addComponent(Update)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Tname, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TEmpid, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TAge, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TGender, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TStd, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Ttinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Tpose, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TConinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39))
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel3)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(Delete)
+                        .addGap(18, 18, 18)
+                        .addComponent(Update)
+                        .addGap(191, 191, 191)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Tname, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TEmpid, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TAge, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TGender, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Ttinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Tpose, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TCell, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TStd, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,9 +291,9 @@ public class View1 extends javax.swing.JPanel {
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Srch)
                     .addComponent(Tsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(21, 21, 21)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Tname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -313,8 +330,12 @@ public class View1 extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TConinfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                    .addComponent(TEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TCell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -364,7 +385,8 @@ public class View1 extends javax.swing.JPanel {
         TLevel.setText("");
         Ttinfo.setText("");
         Tpose.setText("");
-        TConinfo.setText("");
+        TEmail.setText("");
+        TCell.setText("");
          }
              
              
@@ -387,21 +409,23 @@ public class View1 extends javax.swing.JPanel {
         String Emp_id = model.getValueAt(jTable1.getSelectedRow(), 1).toString();
         String age = model.getValueAt(jTable1.getSelectedRow(), 2).toString();
         String gender = model.getValueAt(jTable1.getSelectedRow(), 3).toString();
-        String Std = model.getValueAt(jTable1.getSelectedRow(), 4).toString();
+        String date =  model.getValueAt(jTable1.getSelectedRow(), 4).toString();       
         String Level = model.getValueAt(jTable1.getSelectedRow(), 5).toString();
         String Tinfo = model.getValueAt(jTable1.getSelectedRow(), 6).toString();
         String Pose = model.getValueAt(jTable1.getSelectedRow(), 7).toString();
-        String con = model.getValueAt(jTable1.getSelectedRow(), 8).toString();  
+        String eml = model.getValueAt(jTable1.getSelectedRow(), 8).toString();  
+        String cell = model.getValueAt(jTable1.getSelectedRow(), 9).toString(); 
                
         Tname.setText(tname);
         TEmpid.setText(Emp_id);
         TAge.setText(age);
         TGender.setText(gender);
-        TStd.setText(Std);
+        TStd.setText(date);
         TLevel.setText(Level);
         Ttinfo.setText(Tinfo);
         Tpose.setText(Pose);
-        TConinfo.setText(con);
+        TEmail.setText(eml);
+        TCell.setText(cell);
     }//GEN-LAST:event_jTable1MousePressed
 
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
@@ -416,17 +440,20 @@ public class View1 extends javax.swing.JPanel {
         String age_1 = TAge.getText(); 
         String gender_1 =  TGender.getText(); 
         String Std_1 = TStd.getText();
+        
         String Level_1 = TLevel.getText(); 
         String Tinfo_1 =   Ttinfo.getText(); 
         String Pose_1 =  Tpose.getText();
-        String con_1 = TConinfo.getText();  
+        String eml_1 = TEmail.getText();  
+        String cell_1 = TCell.getText();
         
         Saveinfo rv =dinfo.remove(Row);
         Saveinfo up = dinfo.update(Row);
        
        
        up.setName(tname_1);
-       up.setContact(con_1);
+       up.setCell(cell_1);
+       up.setEmail(eml_1);
        up.setAge(age_1);
        up.setDate(Std_1);
        up.setEmpid(Emp_id_1);
@@ -443,7 +470,8 @@ public class View1 extends javax.swing.JPanel {
             model.setValueAt(Level_1, jTable1.getSelectedRow(), 5);
              model.setValueAt(Tinfo_1, jTable1.getSelectedRow(), 6);
               model.setValueAt(Pose_1, jTable1.getSelectedRow(), 7);
-               model.setValueAt(con_1, jTable1.getSelectedRow(), 8);
+               model.setValueAt(eml_1, jTable1.getSelectedRow(), 8);
+               model.setValueAt(cell_1, jTable1.getSelectedRow(), 9);
                
     
             
@@ -460,7 +488,8 @@ public class View1 extends javax.swing.JPanel {
         TLevel.setText("");
         Ttinfo.setText("");
         Tpose.setText("");
-        TConinfo.setText("");
+        TEmail.setText("");
+        TCell.setText("");
             
             
             
@@ -499,7 +528,7 @@ public class View1 extends javax.swing.JPanel {
         
         for( Saveinfo sv : dinfo.getDinfo())
         {
-            Object[] Row = new Object[9];
+            Object[] Row = new Object[10];
             Row [0]= sv.getName();
             Row [1]= sv.getEmpid();
             Row [2]= sv.getAge();
@@ -508,7 +537,8 @@ public class View1 extends javax.swing.JPanel {
             Row [5]= sv.getLevel();
             Row [6]= sv.getTinfo();
             Row [7]= sv.getPoseinfo();
-            Row [8]= sv.getContact();
+            Row [8]= sv.getEmail();
+            Row [9]= sv.getCell();
             
           
                     
@@ -522,7 +552,8 @@ public class View1 extends javax.swing.JPanel {
     private javax.swing.JButton Delete;
     private javax.swing.JButton Srch;
     private javax.swing.JTextField TAge;
-    private javax.swing.JTextField TConinfo;
+    private javax.swing.JTextField TCell;
+    private javax.swing.JTextField TEmail;
     private javax.swing.JTextField TEmpid;
     private javax.swing.JTextField TGender;
     private javax.swing.JTextField TLevel;
