@@ -19,7 +19,9 @@ public class Saveinfo {
     private String Tinfo;
     private String poseinfo;
     private String Contact;
+    
 
+          
     public String getName() {
         return name;
     }

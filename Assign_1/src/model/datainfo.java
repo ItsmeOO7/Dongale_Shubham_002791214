@@ -17,21 +17,45 @@ public class datainfo {
     public datainfo()
     {
         this.dinfo = new ArrayList <Saveinfo> ();
+       
     }
 
     public ArrayList<Saveinfo> getDinfo() {
         return dinfo;
     }
-
+    
+    public  int  size()
+    {   
+        int sz = dinfo.size();
+        return sz;
+    }
+    
     public void setDinfo(ArrayList<Saveinfo> dinfo) {
         this.dinfo = dinfo;
     }
-    
+   
     public Saveinfo add()
     {
         Saveinfo newinfo = new Saveinfo();
         dinfo.add(newinfo);
         return newinfo;
     }
- 
+    
+    
+    public Saveinfo remove(int i)
+    {
+        
+        dinfo.remove(i);
+        return null; 
+    }
+    
+    public Saveinfo update (int i)
+    {
+        Saveinfo up =new Saveinfo();
+        dinfo.add(i, up);
+      return up;   
+    }
+    
+         
+            
 }
