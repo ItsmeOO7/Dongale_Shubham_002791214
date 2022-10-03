@@ -14,6 +14,7 @@ public class Saveinfo {
     
     private String name ;
     private String empid;
+
     private String age ;
     private String gender;
     private String date ;
@@ -22,6 +23,15 @@ public class Saveinfo {
     private String poseinfo;
     private String email;
     private String cell;
+     
+    
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
     
     public String getEmail() {
         return email;
@@ -64,13 +74,7 @@ public class Saveinfo {
         this.empid = empid;
     }
 
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
+ 
 
     public String getGender() {
         return gender;

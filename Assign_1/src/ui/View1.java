@@ -79,7 +79,7 @@ public class View1 extends javax.swing.JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false, false
@@ -437,7 +437,7 @@ public class View1 extends javax.swing.JPanel {
         {
         String tname_1 = Tname.getText();
         String Emp_id_1 =TEmpid.getText();
-        String age_1 = TAge.getText(); 
+        String Age_1 = TAge.getText();
         String gender_1 =  TGender.getText(); 
         String Std_1 = TStd.getText();
         
@@ -454,7 +454,7 @@ public class View1 extends javax.swing.JPanel {
        up.setName(tname_1);
        up.setCell(cell_1);
        up.setEmail(eml_1);
-       up.setAge(age_1);
+       up.setAge(Age_1);
        up.setDate(Std_1);
        up.setEmpid(Emp_id_1);
        up.setGender(gender_1);
@@ -464,7 +464,7 @@ public class View1 extends javax.swing.JPanel {
         
         model.setValueAt(tname_1, jTable1.getSelectedRow(), 0);
         model.setValueAt(Emp_id_1, jTable1.getSelectedRow(), 1);  
-         model.setValueAt(age_1, jTable1.getSelectedRow(), 2);
+         model.setValueAt(Age_1, jTable1.getSelectedRow(), 2);
           model.setValueAt(gender_1, jTable1.getSelectedRow(), 3);
            model.setValueAt(Std_1, jTable1.getSelectedRow(), 4);
             model.setValueAt(Level_1, jTable1.getSelectedRow(), 5);

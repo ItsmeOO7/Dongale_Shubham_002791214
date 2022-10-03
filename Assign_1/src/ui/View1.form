@@ -173,7 +173,7 @@
                   <Table columnCount="10" rowCount="0">
                     <Column editable="false" title="Name" type="java.lang.String"/>
                     <Column editable="false" title="Employee ID" type="java.lang.String"/>
-                    <Column editable="false" title="Age" type="java.lang.String"/>
+                    <Column editable="false" title="Age" type="java.lang.Integer"/>
                     <Column editable="false" title="Gender" type="java.lang.String"/>
                     <Column editable="false" title="Start Date" type="java.lang.String"/>
                     <Column editable="false" title="Level" type="java.lang.String"/>
