@@ -12,6 +12,7 @@ import model.datainfo;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 
@@ -447,6 +448,31 @@ public class View1 extends javax.swing.JPanel {
         String eml_1 = TEmail.getText();  
         String cell_1 = TCell.getText();
         
+            
+            
+            if (!Pattern.matches("^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",Tname.getText()))
+            {
+                
+                 JOptionPane.showMessageDialog(this, "Please Enter Valid Name  !!!");
+                
+            }
+            else if (!Pattern.matches("\\d{10}",TCell.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Please Enter Valid Number  !!!");
+                
+            }
+            else if (!Pattern.matches("^[\\w\\-]([\\.\\w])+[\\w]+@([\\w\\-]+\\.)+[a-z]{2,4}$", TEmail.getText())) 
+            {
+                JOptionPane.showMessageDialog(this, "Please Enter Valid Email !!!");
+                
+            }
+            else if (!Pattern.matches("^[0-9].*$", TAge.getText())) 
+            {
+                JOptionPane.showMessageDialog(this, "Please Enter Valid Age  !!!");
+                
+            }
+            else {
+        
         Saveinfo rv =dinfo.remove(Row);
         Saveinfo up = dinfo.update(Row);
        
@@ -479,7 +505,7 @@ public class View1 extends javax.swing.JPanel {
             
             JOptionPane.showMessageDialog(this, "Data is Updated !!!");
             
-            
+            } 
         Tname.setText("");
         TEmpid.setText("");
         TAge.setText("");
