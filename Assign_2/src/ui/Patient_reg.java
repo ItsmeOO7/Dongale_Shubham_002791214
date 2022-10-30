@@ -9,9 +9,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.*;
+
 
 
 /**
@@ -23,8 +26,14 @@ public class Patient_reg extends javax.swing.JFrame {
     /**
      * Creates new form Patient_reg
      */
-    public Patient_reg() {
+    
+  
+    
+    public Patient_reg( ) {
         initComponents();
+       
+            
+        
     }
     
      Connection con ;
@@ -465,7 +474,7 @@ public class Patient_reg extends javax.swing.JFrame {
                                 .addComponent(jMale, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -704,6 +713,9 @@ public class Patient_reg extends javax.swing.JFrame {
         {
 
             try {
+                
+                
+                
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aed","root","root");
 
@@ -721,8 +733,13 @@ public class Patient_reg extends javax.swing.JFrame {
                 ps.setInt(10, Zip);
                 ps.setInt(11, Phone);
                 ps.setString(12, Email);
-
+                               
+                              
                 ps.execute();
+                
+                
+                
+                
                 JOptionPane.showMessageDialog(null, "Saved" );
             }
             catch (ClassNotFoundException ex) {
@@ -750,42 +767,15 @@ public class Patient_reg extends javax.swing.JFrame {
         jAge.setText("");
 
     }//GEN-LAST:event_jAgeMousePressed
-
+   
+    /**
+     *
+     */
+    
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Patient_reg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Patient_reg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Patient_reg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Patient_reg.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Patient_reg().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField jAddr;
