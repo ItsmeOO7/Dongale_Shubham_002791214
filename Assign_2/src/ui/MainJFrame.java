@@ -96,7 +96,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jUserTypecombo.setBackground(new java.awt.Color(255, 255, 255));
         jUserTypecombo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jUserTypecombo.setForeground(new java.awt.Color(0, 0, 0));
-        jUserTypecombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Patient", "Doctor ", "Admin", "Community Admin", "Hospital Admin" }));
+        jUserTypecombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Patient", "Doctor", "Admin", "Community Admin", "Hospital Admin" }));
         jUserTypecombo.setBorder(null);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -272,60 +272,51 @@ public class MainJFrame extends javax.swing.JFrame {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aed","root","root");
-                String qry ="Select * from patient_info where username=? and password=? ";
+                
+                
+                 if(ut.equals("Patient"))
+                {  
+                   String qry ="Select * from patient_info where username=? and password=? ";
                 ps =con.prepareStatement(qry);
                 ps.setString(1,ur);
                 ps.setString(2, pass);
                 rs = ps.executeQuery();
-                
-                 if(ut.equalsIgnoreCase("patient"))
-                {  
                 if(rs.next())
-                {
-                   
-                                       
+                {                                    
                     Patient_panel pn =new Patient_panel();
-                    //pn.jLabel1.setText(ur);
+     
                     pn.addinfo(ur,pass);
                     pn.setVisible(true);
-                    dispose();
-                
-                   
+                    dispose(); 
                 }
-                else {
-                    
-                    JOptionPane.showMessageDialog(rootPane, "please enter correct username and password!!! "); 
-                    
+                else {    
+                    JOptionPane.showMessageDialog(rootPane, "please enter correct username and password!!! ");   
                 }
                  
                 }
-                
-                       
-                
-                String qry1 ="select * from doctor_directory where docid=? and password=?";
+                 else if(ut.equals("Doctor"))
+                {   
+                    String qry1 ="select * from doctor_directory where docid=? and password=?";
                 ps =con.prepareStatement(qry1);
                 ps.setString(1,ur);
                 ps.setString(2, pass);
                 rs = ps.executeQuery();
-                //System.out.println("hi");
-                 if(jUserTypecombo.getSelectedItem().equals(ut))
-                {  
-                     System.out.println("hi");
+                     
                 if(rs.next())
                 {
                                                          
                     doctor_panel dp =new doctor_panel();
-                              
-                    dp.show();
+                    dp.getdname(ur);
+                    dp.setVisible(true);
                     dispose();
                 }
-                   
-                
                 else {
                     
                     JOptionPane.showMessageDialog(rootPane, "please enter correct username and password!!! "); 
                     
                 }
+                
+               
                  
             }
         
