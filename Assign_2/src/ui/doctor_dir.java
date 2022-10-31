@@ -380,6 +380,12 @@ public class doctor_dir extends javax.swing.JPanel {
                  ps.execute();
 
                 JOptionPane.showMessageDialog(null, "Deleted !!" );
+                jdc.setText("");
+                jps.setText("");
+                jn.setText("");
+                jsp.setText("");
+                jdg.setText("");
+                jhn.setText("");
             }
             catch (ClassNotFoundException ex) {
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -414,13 +420,13 @@ public class doctor_dir extends javax.swing.JPanel {
 
                 String qry ="Update doctor_directory set name=?,speciality=?,degree=?,hospitalName=?,password=? where docid=?";
                 ps =con.prepareStatement(qry);
-                 ps.setString(1, id);
-                ps.setString(2, Name);
-                ps.setString(3, sp);
-                ps.setString(4, deg);
-                ps.setString(5, hn);
-                ps.setString(6,Pass);
-                ps.setString(7, id);
+               
+                ps.setString(1, Name);
+                ps.setString(2, sp);
+                ps.setString(3, deg);
+                ps.setString(4, hn);
+                ps.setString(5,Pass);
+                ps.setString(6, id);
               
                 ps.execute();
 

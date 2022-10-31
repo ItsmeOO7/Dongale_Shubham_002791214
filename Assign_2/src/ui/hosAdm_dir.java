@@ -319,6 +319,12 @@ public class hosAdm_dir extends javax.swing.JPanel {
                 ps.executeUpdate();
 
                 JOptionPane.showMessageDialog(null, "Deleted !!" );
+                
+                 jid.setText("");
+                jn.setText("");
+                jps.setText("");
+                jcin.setText("");
+                jem.setText("");
             }
             catch (ClassNotFoundException ex) {
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
