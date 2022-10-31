@@ -315,10 +315,30 @@ public class MainJFrame extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "please enter correct username and password!!! "); 
                     
                 }
-                
-               
-                 
-            }
+    
+                }
+                  else if(ut.equals("Admin"))
+                {   
+                    String qry1 ="select * from admin where username=? and pass=?";
+                ps =con.prepareStatement(qry1);
+                ps.setString(1,ur);
+                ps.setString(2, pass);
+                rs = ps.executeQuery();
+                     
+                if(rs.next())
+                {
+                                                         
+                    Admin ad =new Admin();
+                    ad.setVisible(true);
+                    dispose();
+                }
+                else {
+                    
+                    JOptionPane.showMessageDialog(rootPane, "please enter correct username and password!!! "); 
+                    
+                }
+    
+                }
         
                 
                 
