@@ -12,16 +12,16 @@ import java.util.logging.*;
  *
  * @author Shubh's PC
  */
-public class Hos_adm extends javax.swing.JFrame {
+public class hos_adm extends javax.swing.JFrame {
 
     /**
-     * Creates new form Hos_adm
+     * Creates new form hos_adm
      */
     Connection con ;
      PreparedStatement ps;
      ResultSet rs;
      
-    public Hos_adm() {
+    public hos_adm() {
         initComponents();
     }
 
@@ -48,6 +48,7 @@ public class Hos_adm extends javax.swing.JFrame {
         jhn = new javax.swing.JTextField();
         javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
         jcrt = new javax.swing.JButton();
+        jcrt1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +91,13 @@ public class Hos_adm extends javax.swing.JFrame {
             }
         });
 
+        jcrt1.setText("Logout");
+        jcrt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcrt1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -119,7 +127,8 @@ public class Hos_adm extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jhn)
                                 .addComponent(jdg)
-                                .addComponent(jsp, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jsp, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jcrt1))))
                 .addContainerGap(257, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -151,7 +160,9 @@ public class Hos_adm extends javax.swing.JFrame {
                     .addComponent(jhn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addComponent(jcrt)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jcrt1)
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -222,6 +233,13 @@ public class Hos_adm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jcrtActionPerformed
 
+    private void jcrt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcrt1ActionPerformed
+        // TODO add your handling code here:
+          MainJFrame mf = new MainJFrame();
+        mf.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jcrt1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -239,20 +257,23 @@ public class Hos_adm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Hos_adm().setVisible(true);
+                new hos_adm().setVisible(true);
             }
         });
     }
@@ -260,6 +281,7 @@ public class Hos_adm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jcrt;
+    private javax.swing.JButton jcrt1;
     private javax.swing.JTextField jdc;
     private javax.swing.JTextField jdg;
     private javax.swing.JTextField jhn;

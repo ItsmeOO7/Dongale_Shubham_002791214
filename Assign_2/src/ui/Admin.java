@@ -28,33 +28,57 @@ public class Admin extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        patient = new javax.swing.JButton();
+        doctor = new javax.swing.JButton();
+        person = new javax.swing.JButton();
+        hosp_adm = new javax.swing.JButton();
+        com_adm = new javax.swing.JButton();
+        Hosp = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(74, 31, 61));
 
-        jButton1.setText("Patient");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        patient.setText("Patient");
+        patient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                patientActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Doctor");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        doctor.setText("Doctor");
+        doctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                doctorActionPerformed(evt);
             }
         });
 
-        jButton3.setText("person");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        person.setText("person");
+        person.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                personActionPerformed(evt);
+            }
+        });
+
+        hosp_adm.setText("Hosp_adm");
+        hosp_adm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hosp_admActionPerformed(evt);
+            }
+        });
+
+        com_adm.setText("Com_adm");
+        com_adm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                com_admActionPerformed(evt);
+            }
+        });
+
+        Hosp.setText("Hospital");
+        Hosp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HospActionPerformed(evt);
             }
         });
 
@@ -65,21 +89,30 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(patient, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                    .addComponent(doctor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                    .addComponent(person, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(hosp_adm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(com_adm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Hosp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jButton1)
-                .addGap(49, 49, 49)
-                .addComponent(jButton2)
-                .addGap(58, 58, 58)
-                .addComponent(jButton3)
-                .addContainerGap(475, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addComponent(patient)
+                .addGap(46, 46, 46)
+                .addComponent(doctor)
+                .addGap(47, 47, 47)
+                .addComponent(hosp_adm)
+                .addGap(37, 37, 37)
+                .addComponent(com_adm)
+                .addGap(39, 39, 39)
+                .addComponent(Hosp)
+                .addGap(48, 48, 48)
+                .addComponent(person)
+                .addContainerGap(284, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -113,27 +146,49 @@ public class Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void patientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientActionPerformed
         // TODO add your handling code here:
         
         patient_dir dr = new patient_dir();
         dr.addpt();
         jSplitPane1.setRightComponent(dr);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_patientActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void doctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorActionPerformed
         // TODO add your handling code here:
         doctor_dir dcr = new doctor_dir();
         dcr.adddoc();
         jSplitPane1.setRightComponent(dcr);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_doctorActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void personActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personActionPerformed
         // TODO add your handling code here:
         person_dir pr = new person_dir();
         pr.addper();
         jSplitPane1.setRightComponent(pr);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_personActionPerformed
+
+    private void hosp_admActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hosp_admActionPerformed
+        // TODO add your handling code here:
+        hosAdm_dir hdr= new hosAdm_dir();
+        hdr.addhos();
+        jSplitPane1.setRightComponent(hdr);
+    }//GEN-LAST:event_hosp_admActionPerformed
+
+    private void com_admActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_com_admActionPerformed
+        // TODO add your handling code here:
+        cmAdm_dir cdr = new cmAdm_dir();
+        cdr.addcom();
+        jSplitPane1.setRightComponent(cdr);
+      
+    }//GEN-LAST:event_com_admActionPerformed
+
+    private void HospActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospActionPerformed
+        // TODO add your handling code here:
+         hosp hp =  new hosp();
+        hp.gethos();
+        jSplitPane1.setRightComponent(hp);
+    }//GEN-LAST:event_HospActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,11 +226,14 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Hosp;
+    private javax.swing.JButton com_adm;
+    private javax.swing.JButton doctor;
+    private javax.swing.JButton hosp_adm;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JButton patient;
+    private javax.swing.JButton person;
     // End of variables declaration//GEN-END:variables
 }

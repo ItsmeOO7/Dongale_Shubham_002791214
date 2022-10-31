@@ -350,8 +350,30 @@ public class MainJFrame extends javax.swing.JFrame {
                 if(rs.next())
                 {
                                                          
-                    Hos_adm ham = new Hos_adm();
+                    hos_adm ham = new hos_adm();
                     ham.setVisible(true);
+                    dispose();
+                }
+                else {
+                    
+                    JOptionPane.showMessageDialog(rootPane, "please enter correct username and password!!! "); 
+                    
+                }
+    
+                }
+                  else if(ut.equals("Community Admin"))
+                {   
+                String qry1 ="select * from com_adm where com_id=? and password=?";
+                ps =con.prepareStatement(qry1);
+                ps.setString(1,ur);
+                ps.setString(2, pass);
+                rs = ps.executeQuery();
+                     
+                if(rs.next())
+                {
+                                                         
+                    com_adm cam = new com_adm();
+                    cam.setVisible(true);
                     dispose();
                 }
                 else {
