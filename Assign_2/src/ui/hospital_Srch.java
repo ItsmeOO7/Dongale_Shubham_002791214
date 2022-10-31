@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -288,7 +289,7 @@ public class hospital_Srch extends javax.swing.JFrame {
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
                 .addGap(42, 42, 42))
         );
@@ -494,6 +495,19 @@ public class hospital_Srch extends javax.swing.JFrame {
        // String n = jLabel1.getText();
         String i =jLabel14.getText();
         String name =jLabel15.getText();
+        
+        
+        
+        if (date.isBlank()||time.isBlank()||i.isBlank()||name.isBlank())
+        {
+            JOptionPane.showMessageDialog(this,
+                "Please enter all fields ",
+                " Try again",
+                JOptionPane.ERROR_MESSAGE);
+            
+        }else
+            
+        {
         try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aed","root","root");
@@ -513,6 +527,8 @@ public class hospital_Srch extends javax.swing.JFrame {
             Logger.getLogger(hospital_Srch.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(hospital_Srch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         }
         
        

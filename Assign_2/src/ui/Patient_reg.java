@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import model.*;
 
@@ -666,14 +667,15 @@ public class Patient_reg extends javax.swing.JFrame {
         String Cpass = jCPass.getText();
         String Name  = jName.getText();
         String Gender ="";
-        int Age = Integer.parseInt(jAge.getText());
+        String Age = jAge.getText();
+        
         String Addr = jAddr.getText();
         String City = jCity.getText();
         String State = jState.getText();
         String Country = jCountry.getText();
-        int Zip = Integer.parseInt(jZip.getText());
-        //String Zip1 =jZip.getText();
-        int Phone = Integer.parseInt(jPhone.getText());
+        String Zip = jZip.getText();
+        
+        String Phone = jPhone.getText();
         String Email = jEmail.getText();
 
          String MPass=null;
@@ -711,7 +713,36 @@ public class Patient_reg extends javax.swing.JFrame {
         }
         else
         {
-
+            
+            
+            if (!Pattern.matches("^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",jName.getText()))
+            {
+                
+                 JOptionPane.showMessageDialog(this, "Please Enter Valid Name  !!!");
+                
+            }
+            else if (!Pattern.matches("^[0-9].*$",jAge.getText())) 
+            {
+                JOptionPane.showMessageDialog(this, "Please Enter Valid Age  !!!");
+                
+            }
+            else if (!Pattern.matches("^[0-9].*$", jZip.getText())) 
+            {
+                JOptionPane.showMessageDialog(this, "Please Enter Valid Zipcode  !!!");
+                
+            }
+            else if (!Pattern.matches("\\d{10}",jPhone.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Please Enter Valid Number  !!!");
+                
+            }
+            else if (!Pattern.matches("^[\\w\\-]([\\.\\w])+[\\w]+@([\\w\\-]+\\.)+[a-z]{2,4}$", jEmail.getText())) 
+            {
+                JOptionPane.showMessageDialog(this, "Please Enter Valid Email !!!");
+                
+            }
+            else{
+         
             try {
                 
                 
@@ -725,13 +756,13 @@ public class Patient_reg extends javax.swing.JFrame {
                 ps.setString(2, MPass);
                 ps.setString(3, Name);
                 ps.setString(4, Gender);
-                ps.setInt(5, Age);
+                ps.setString(5, Age);
                 ps.setString(6,Addr );
                 ps.setString(7, City);
                 ps.setString(8, State);
                 ps.setString(9, Country);
-                ps.setInt(10, Zip);
-                ps.setInt(11, Phone);
+                ps.setString(10, Zip);
+                ps.setString(11, Phone);
                 ps.setString(12, Email);               
                               
                 ps.execute();
@@ -752,6 +783,7 @@ public class Patient_reg extends javax.swing.JFrame {
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
 
+        }
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

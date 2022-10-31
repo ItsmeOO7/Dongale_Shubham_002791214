@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -390,13 +391,13 @@ public class patient_dir extends javax.swing.JPanel {
         String Pass = jps.getText();
         String Name  = jn.getText();
         String Gender =jg.getText();
-        int Age = Integer.parseInt(jag.getText());
+        String Age = jag.getText();
         String Addr = jha.getText();
         String City = jct.getText();
         String State = jst.getText();
         String Country = jcn.getText();
-        int Zip = Integer.parseInt(jz.getText());
-        int Phone = Integer.parseInt(jph.getText());
+        String Zip =jz.getText();
+        String Phone =jph.getText();
         String Email = jem.getText();
 
         
@@ -412,7 +413,35 @@ public class patient_dir extends javax.swing.JPanel {
         }
         else
         {
-
+            
+             if (!Pattern.matches("^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",jn.getText()))
+            {
+                
+                 JOptionPane.showMessageDialog(this, "Please Enter Valid Name  !!!");
+                
+            }
+            else if (!Pattern.matches("^[0-9].*$",jag.getText())) 
+            {
+                JOptionPane.showMessageDialog(this, "Please Enter Valid Age  !!!");
+                
+            }
+            else if (!Pattern.matches("^[0-9].*$", jz.getText())) 
+            {
+                JOptionPane.showMessageDialog(this, "Please Enter Valid Zipcode  !!!");
+                
+            }
+            else if (!Pattern.matches("\\d{10}",jph.getText()))
+            {
+                JOptionPane.showMessageDialog(this, "Please Enter Valid Number  !!!");
+                
+            }
+            else if (!Pattern.matches("^[\\w\\-]([\\.\\w])+[\\w]+@([\\w\\-]+\\.)+[a-z]{2,4}$", jem.getText())) 
+            {
+                JOptionPane.showMessageDialog(this, "Please Enter Valid Email !!!");
+                
+            }
+            else 
+            {
             try {
                 
                 
@@ -426,13 +455,13 @@ public class patient_dir extends javax.swing.JPanel {
                 ps.setString(2, Pass);
                 ps.setString(3, Name);
                 ps.setString(4, Gender);
-                ps.setInt(5, Age);
+                ps.setString(5, Age);
                 ps.setString(6,Addr );
                 ps.setString(7, City);
                 ps.setString(8, State);
                 ps.setString(9, Country);
-                ps.setInt(10, Zip);
-                ps.setInt(11, Phone);
+                ps.setString(10, Zip);
+                ps.setString(11, Phone);
                 ps.setString(12, Email);
                                
                               
@@ -453,7 +482,8 @@ public class patient_dir extends javax.swing.JPanel {
             catch (SQLException ex) {
                 Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            }
+            
         }
     }//GEN-LAST:event_jcrtActionPerformed
 

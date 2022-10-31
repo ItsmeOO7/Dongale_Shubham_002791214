@@ -268,6 +268,12 @@ public class hosAdm_dir extends javax.swing.JPanel {
                 ps.setString(4, cin);
                 ps.setString(5, em);
                 ps.execute();
+                
+                String qry1 ="Insert into person_directory (name,pass) value(?,?)";
+                ps =con.prepareStatement(qry1);
+                ps.setString(1, n);
+                ps.setString(2, pass);
+                 ps.execute();
 
                 JOptionPane.showMessageDialog(null, "Saved" );
             }
