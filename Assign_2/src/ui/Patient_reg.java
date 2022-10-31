@@ -732,11 +732,14 @@ public class Patient_reg extends javax.swing.JFrame {
                 ps.setString(9, Country);
                 ps.setInt(10, Zip);
                 ps.setInt(11, Phone);
-                ps.setString(12, Email);
-                               
+                ps.setString(12, Email);               
                               
                 ps.execute();
                 
+                String qry1 ="Insert into person_directory (name) value(?)";
+                ps =con.prepareStatement(qry1);
+                ps.setString(1, Name);
+                 ps.execute();
                 
                 
                 

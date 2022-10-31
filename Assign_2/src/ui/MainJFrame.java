@@ -339,7 +339,28 @@ public class MainJFrame extends javax.swing.JFrame {
                 }
     
                 }
-        
+                 else if(ut.equals("Hospital Admin"))
+                {   
+                    String qry1 ="select * from Hos_adm where HsAdm_id=? and pass=?";
+                ps =con.prepareStatement(qry1);
+                ps.setString(1,ur);
+                ps.setString(2, pass);
+                rs = ps.executeQuery();
+                     
+                if(rs.next())
+                {
+                                                         
+                    Hos_adm ham = new Hos_adm();
+                    ham.setVisible(true);
+                    dispose();
+                }
+                else {
+                    
+                    JOptionPane.showMessageDialog(rootPane, "please enter correct username and password!!! "); 
+                    
+                }
+    
+                }
                 
                 
                 

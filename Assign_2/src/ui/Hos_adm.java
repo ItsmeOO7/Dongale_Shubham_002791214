@@ -1,74 +1,30 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ui;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+import java.sql.*;
+import java.util.logging.*;
 
 /**
  *
  * @author Shubh's PC
  */
-public class doctor_dir extends javax.swing.JPanel {
+public class Hos_adm extends javax.swing.JFrame {
 
     /**
-     * Creates new form doctor_dir
+     * Creates new form Hos_adm
      */
     Connection con ;
      PreparedStatement ps;
      ResultSet rs;
      
-    public doctor_dir() {
+    public Hos_adm() {
         initComponents();
     }
-     
-    
-     public void adddoc()
-    {
-        try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aed","root","root");
-                       
-               
-                
-                String qry ="Select * from doctor_directory";
-                ps =con.prepareStatement(qry);
-                rs = ps.executeQuery();                             
-                while (rs.next())
-                {
-                    String dcid=rs.getString(1);
-                    String pass=rs.getString(6);
-                      String n = rs.getString(2);
-                     String sp =rs.getString(3);
-                     String dg = rs.getString(4);
-                     String hn=rs.getString(5);
-                    
-                    String tbdata[]={dcid,pass,n,sp,dg,hn};
-                    DefaultTableModel model =(DefaultTableModel)jTable1.getModel();
-                    
-                    model.addRow(tbdata);
-                   
-                }
-                
-              
-                   
-                
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,8 +35,6 @@ public class doctor_dir extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
         jdc = new javax.swing.JTextField();
         jps = new javax.swing.JTextField();
@@ -94,33 +48,10 @@ public class doctor_dir extends javax.swing.JPanel {
         jhn = new javax.swing.JTextField();
         javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
         jcrt = new javax.swing.JButton();
-        jdlt = new javax.swing.JButton();
-        jupd = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(186, 79, 84));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Docid", "Password", "Name", "Speciality", "Degree", "Hospital Name"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTable1MousePressed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -159,26 +90,12 @@ public class doctor_dir extends javax.swing.JPanel {
             }
         });
 
-        jdlt.setText("Delete");
-        jdlt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jdltActionPerformed(evt);
-            }
-        });
-
-        jupd.setText("Update");
-        jupd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jupdActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(205, 205, 205)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -197,31 +114,18 @@ public class doctor_dir extends javax.swing.JPanel {
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jhn, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                            .addComponent(jdg)
-                            .addComponent(jsp))))
-                .addGap(149, 149, 149))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 796, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(jcrt)
-                        .addGap(40, 40, 40)
-                        .addComponent(jdlt)
-                        .addGap(32, 32, 32)
-                        .addComponent(jupd)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jcrt)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jhn)
+                                .addComponent(jdg)
+                                .addComponent(jsp, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(257, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jdc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -245,16 +149,13 @@ public class doctor_dir extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jhn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcrt)
-                    .addComponent(jdlt)
-                    .addComponent(jupd))
-                .addGap(44, 44, 44))
+                .addGap(43, 43, 43)
+                .addComponent(jcrt)
+                .addContainerGap(209, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -263,29 +164,9 @@ public class doctor_dir extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-    }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
-        // TODO add your handling code here:
-         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        
-        String tid = model.getValueAt(jTable1.getSelectedRow(), 0).toString();
-        String tpass = model.getValueAt(jTable1.getSelectedRow(), 1).toString();
-        String tn = model.getValueAt(jTable1.getSelectedRow(), 2).toString();
-        String tsp = model.getValueAt(jTable1.getSelectedRow(), 3).toString();
-        String tdg = model.getValueAt(jTable1.getSelectedRow(), 4).toString();
-        String thn = model.getValueAt(jTable1.getSelectedRow(), 5).toString();
-        
-        
-        jdc.setText(tid);
-        jps.setText(tpass);
-        jn.setText(tn);
-        jsp.setText(tsp);
-        jdg.setText(tdg);
-        jhn.setText(thn);
-       
-        
-    }//GEN-LAST:event_jTable1MousePressed
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
     private void jcrtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcrtActionPerformed
         // TODO add your handling code here:
@@ -296,7 +177,6 @@ public class doctor_dir extends javax.swing.JPanel {
         String sp =jsp.getText();
         String deg = jdg.getText();
         String hn = jhn.getText();
-       
 
         if (id.isBlank()|| Pass.isBlank()|| Pass.isBlank()|| Name.isBlank() || sp.isBlank()|| deg.isBlank()|| hn.isBlank() )
         {
@@ -328,8 +208,8 @@ public class doctor_dir extends javax.swing.JPanel {
                 ps =con.prepareStatement(qry1);
                 ps.setString(1, Name);
                 ps.setString(2, Pass);
-                 ps.execute();
-                 
+                ps.execute();
+
                 JOptionPane.showMessageDialog(null, "Saved" );
             }
             catch (ClassNotFoundException ex) {
@@ -342,113 +222,49 @@ public class doctor_dir extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jcrtActionPerformed
 
-    private void jdltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jdltActionPerformed
-        // TODO add your handling code here:
-        int Row = jTable1.getSelectedRow();
-
-        if (Row <0)
-
-        {
-            JOptionPane.showMessageDialog(this,
-                "No Row is selected! Please select one Row!!",
-                "select Row",
-
-                JOptionPane.ERROR_MESSAGE);
-
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Hos_adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        else
-        {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.removeRow(Row);
+        //</editor-fold>
 
-            String id = jdc.getText();
-            String nm = jn.getText();
-
-            try {
-
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aed","root","root");
-
-                String qry ="delete from doctor_directory where docid=?";
-                ps =con.prepareStatement(qry);
-                ps.setString(1, id);
-                ps.executeUpdate();
-                
-                String qry1 ="delete from person_directory where name=?";
-                ps =con.prepareStatement(qry1);
-                ps.setString(1, nm);
-                 ps.execute();
-
-                JOptionPane.showMessageDialog(null, "Deleted !!" );
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Hos_adm().setVisible(true);
             }
-            catch (ClassNotFoundException ex) {
-                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            catch (SQLException ex) {
-                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
-
-    }//GEN-LAST:event_jdltActionPerformed
-
-    private void jupdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jupdActionPerformed
-        // TODO add your handling code here:
-
-        int Row = jTable1.getSelectedRow();
-
-        if (jTable1.getSelectedRowCount()>0)
-        {
-
-            String id = jdc.getText();
-        String Pass = jps.getText();
-        String Name  = jn.getText();
-        String sp =jsp.getText();
-        String deg = jdg.getText();
-        String hn = jhn.getText();
-
-            try {
-
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aed","root","root");
-
-                String qry ="Update doctor_directory set name=?,speciality=?,degree=?,hospitalName=?,password=? where docid=?";
-                ps =con.prepareStatement(qry);
-                 ps.setString(1, id);
-                ps.setString(2, Name);
-                ps.setString(3, sp);
-                ps.setString(4, deg);
-                ps.setString(5, hn);
-                ps.setString(6,Pass);
-                ps.setString(7, id);
-              
-                ps.execute();
-
-                JOptionPane.showMessageDialog(null, "Information is updated!!!" );
-            }
-            catch (ClassNotFoundException ex) {
-                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            catch (SQLException ex) {
-                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
-    }//GEN-LAST:event_jupdActionPerformed
-
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton jcrt;
     private javax.swing.JTextField jdc;
     private javax.swing.JTextField jdg;
-    private javax.swing.JButton jdlt;
     private javax.swing.JTextField jhn;
     private javax.swing.JTextField jn;
     private javax.swing.JTextField jps;
     private javax.swing.JTextField jsp;
-    private javax.swing.JButton jupd;
     // End of variables declaration//GEN-END:variables
 }
