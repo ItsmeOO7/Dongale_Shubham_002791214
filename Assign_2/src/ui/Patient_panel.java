@@ -388,6 +388,7 @@ public class Patient_panel extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(74, 31, 61));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Search Hospitals ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -396,6 +397,7 @@ public class Patient_panel extends javax.swing.JFrame {
             }
         });
 
+        jlogout.setBackground(new java.awt.Color(255, 255, 255));
         jlogout.setForeground(new java.awt.Color(0, 0, 0));
         jlogout.setText("Logout");
         jlogout.addActionListener(new java.awt.event.ActionListener() {

@@ -92,6 +92,8 @@ public class hosp extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("City:");
 
+        jcrt.setBackground(new java.awt.Color(255, 255, 255));
+        jcrt.setForeground(new java.awt.Color(0, 0, 0));
         jcrt.setText("Create");
         jcrt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,6 +101,8 @@ public class hosp extends javax.swing.JPanel {
             }
         });
 
+        jdlt.setBackground(new java.awt.Color(255, 255, 255));
+        jdlt.setForeground(new java.awt.Color(0, 0, 0));
         jdlt.setText("Delete");
         jdlt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +110,8 @@ public class hosp extends javax.swing.JPanel {
             }
         });
 
+        jupd.setBackground(new java.awt.Color(255, 255, 255));
+        jupd.setForeground(new java.awt.Color(0, 0, 0));
         jupd.setText("Update");
         jupd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +145,7 @@ public class hosp extends javax.swing.JPanel {
                         .addComponent(jcrt)
                         .addGap(41, 41, 41)
                         .addComponent(jdlt)
-                        .addGap(28, 28, 28)
+                        .addGap(43, 43, 43)
                         .addComponent(jupd)))
                 .addContainerGap(159, Short.MAX_VALUE))
         );

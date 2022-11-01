@@ -67,6 +67,8 @@ public class VitalsignsH extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        Delete.setBackground(new java.awt.Color(255, 255, 255));
+        Delete.setForeground(new java.awt.Color(0, 0, 0));
         Delete.setText("Delete");
         Delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +127,8 @@ public class VitalsignsH extends javax.swing.JPanel {
          {
              DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
               model.removeRow(Row);
+              
+              
         
          }
     }//GEN-LAST:event_DeleteActionPerformed

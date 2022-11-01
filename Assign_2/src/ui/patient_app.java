@@ -157,6 +157,8 @@ public class patient_app extends javax.swing.JPanel {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Pulse:");
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Create");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,7 +299,7 @@ public class patient_app extends javax.swing.JPanel {
                 ps.setString(3,tm);
                 ps.setString(4,bp);
                 ps.setString(5,pl);
-                ps.setString(5, id);
+                ps.setString(6, id);
                 
                 ps.execute();
                 

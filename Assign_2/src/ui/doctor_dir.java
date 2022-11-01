@@ -152,6 +152,8 @@ public class doctor_dir extends javax.swing.JPanel {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Hospital Name:");
 
+        jcrt.setBackground(new java.awt.Color(255, 255, 255));
+        jcrt.setForeground(new java.awt.Color(0, 0, 0));
         jcrt.setText("Create");
         jcrt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +161,8 @@ public class doctor_dir extends javax.swing.JPanel {
             }
         });
 
+        jdlt.setBackground(new java.awt.Color(255, 255, 255));
+        jdlt.setForeground(new java.awt.Color(0, 0, 0));
         jdlt.setText("Delete");
         jdlt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +170,8 @@ public class doctor_dir extends javax.swing.JPanel {
             }
         });
 
+        jupd.setBackground(new java.awt.Color(255, 255, 255));
+        jupd.setForeground(new java.awt.Color(0, 0, 0));
         jupd.setText("Update");
         jupd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -55,6 +55,8 @@ public class com_adm extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Enter Area:");
 
+        jcrt.setBackground(new java.awt.Color(255, 255, 255));
+        jcrt.setForeground(new java.awt.Color(0, 0, 0));
         jcrt.setText("Add Area");
         jcrt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +64,8 @@ public class com_adm extends javax.swing.JFrame {
             }
         });
 
+        jcrt1.setBackground(new java.awt.Color(255, 255, 255));
+        jcrt1.setForeground(new java.awt.Color(0, 0, 0));
         jcrt1.setText("Logout");
         jcrt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

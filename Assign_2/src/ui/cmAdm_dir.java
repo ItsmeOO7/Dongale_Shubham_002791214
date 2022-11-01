@@ -108,6 +108,8 @@ public class cmAdm_dir extends javax.swing.JPanel {
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("Email:");
 
+        jcrt.setBackground(new java.awt.Color(255, 255, 255));
+        jcrt.setForeground(new java.awt.Color(0, 0, 0));
         jcrt.setText("Create");
         jcrt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +117,8 @@ public class cmAdm_dir extends javax.swing.JPanel {
             }
         });
 
+        jdlt.setBackground(new java.awt.Color(255, 255, 255));
+        jdlt.setForeground(new java.awt.Color(0, 0, 0));
         jdlt.setText("Delete");
         jdlt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +126,8 @@ public class cmAdm_dir extends javax.swing.JPanel {
             }
         });
 
+        jupd.setBackground(new java.awt.Color(255, 255, 255));
+        jupd.setForeground(new java.awt.Color(0, 0, 0));
         jupd.setText("Update");
         jupd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

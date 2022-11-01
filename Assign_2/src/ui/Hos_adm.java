@@ -84,6 +84,8 @@ public class hos_adm extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Hospital Name:");
 
+        jcrt.setBackground(new java.awt.Color(255, 255, 255));
+        jcrt.setForeground(new java.awt.Color(0, 0, 0));
         jcrt.setText("Create");
         jcrt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +93,8 @@ public class hos_adm extends javax.swing.JFrame {
             }
         });
 
+        jcrt1.setBackground(new java.awt.Color(255, 255, 255));
+        jcrt1.setForeground(new java.awt.Color(0, 0, 0));
         jcrt1.setText("Logout");
         jcrt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,8 +215,10 @@ public class hos_adm extends javax.swing.JFrame {
                 ps.setString(2, Name);
                 ps.setString(3, sp);
                 ps.setString(4, deg);
-                ps.setString(5,hn );
+                 ps.setString(5,hn );
                 ps.setString(6, Pass);
+             
+               
                 ps.execute();
 
                 String qry1 ="Insert into person_directory (name,pass) value(?,?)";
