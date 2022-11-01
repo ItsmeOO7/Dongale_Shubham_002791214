@@ -767,9 +767,10 @@ public class Patient_reg extends javax.swing.JFrame {
                               
                 ps.execute();
                 
-                String qry1 ="Insert into person_directory (name) value(?)";
+                String qry1 ="Insert into person_directory (name,pass) value(?,?)";
                 ps =con.prepareStatement(qry1);
                 ps.setString(1, Name);
+                ps.setString(2,MPass);
                  ps.execute();
                 
                 
